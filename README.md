@@ -1,3 +1,2 @@
 # techSkillFromJD
-Job Scanner 
-  Get job descriptions from the web and convert them to clean text
+Job Scanner \n Get job descriptions from the web and convert them to clean text
