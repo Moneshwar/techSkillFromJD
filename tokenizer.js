@@ -23,7 +23,7 @@ module.exports.tokenizer=function (str) {
     return str;
   }
     str=punctuationCleaner(str);
-    str=lowerCaseRemover(str);
+    //str=lowerCaseRemover(str);
     str=stopwordRemover(str);
     str=noiseRemover(str);
     return str;
