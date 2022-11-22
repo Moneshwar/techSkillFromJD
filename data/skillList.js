@@ -1,6 +1,22 @@
 module.exports.skillList=function()
 {
     var skills = [
+      'linux',
+      'javascript',
+      'c++',
+      'python',
+      'nodejs',
+      'java',
+      'bash',
+      'scripts',
+      'ruby',
+      'react',
+      'angular',
+      'api',
+      'SQL',
+      'HTML',
+      'MongoDB',
+      'Git',
       'Algorithms',
       'Analytical Skills',
       'Big Data',
@@ -80,7 +96,7 @@ module.exports.skillList=function()
       'Email',
       'Requirements Gathering',
       'Research',
-      'Subject Matter Experts (SMEs)',
+      'Subject Matter Experts',
       'Technical Documentation'
     ];
     return skills;
