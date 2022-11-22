@@ -1,16 +1,20 @@
-const request=require('request');
-const HTMLParser = require('node-html-parser');
-const token=require(__dirname+"/tokenizer.js");
-const skillCheck=require(__dirname+"/skillsChecking.js");
-url="https://www.amazon.jobs/en/jobs/2302330/software-development-engineer";
-request(url,function(err,res,body)
+const express=require("express");
+const bodyParser=require("body-parser");
+const app=express();
+const datafetch=require(__dirname+"/userModules/dataFetcher.js");
+app.get("/",function(req,res)
 {
-  var receivedTextCopy=[];
-  var root = HTMLParser.parse(body);
-  var JD=root.getElementById('job-detail').querySelector('div.content');
-  var receivedText=JD.text;
-  receivedText=token.tokenizer(receivedText);
-  receivedTextCopy=receivedText.split(' ');
-  receivedTextCopy=[...new Set(receivedTextCopy)];
-  skillCheck.skillsChecking(receivedTextCopy);
+  var ans=[];
+  url="https://www.amazon.jobs/en/jobs/2302330/software-development-engineer";
+  ans=datafetch.dataFetcher(url);
+  ans.forEach(function(item)
+  {
+    console.log(item);
+  })
+  console.log(ans.length);
+  res.send("Hello guys");
+});
+app.listen(3000,function()
+{
+  console.log("Port started at 3000");
 });

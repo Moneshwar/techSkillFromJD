@@ -1,6 +1,6 @@
 module.exports.skillsChecking=function(receivedTextCopy)
 {
-  const skill=require(__dirname+"/data/skillList.js");
+  const skill=require(__dirname+"/../data/skillList.js");
   var map={};
   const skillsList=skill.skillList();
   //console.log(receivedTextCopy);
@@ -23,8 +23,10 @@ module.exports.skillsChecking=function(receivedTextCopy)
   });
   keysSorted = Object.keys(map).sort(function(a,b){return map[b]-map[a]})
   //Top 10 Most needed skills
+  var ans=[];
   for(i=0;i<10;i++)
   {
-    console.log(keysSorted[i]);
+    ans.push(keysSorted[i]);
   }
+  return ans;
 }
