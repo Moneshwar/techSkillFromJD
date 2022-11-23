@@ -1,0 +1,29 @@
+<%-include("header") -%>
+<form action="/" method="post">
+  <label><h2>Entet the Url To Analyse</h2></label>
+  <textarea name="enteredItem" rows="2" cols="90"></textarea>
+  <button class="btn" type="submit" name="button" value="val">Analyse</button>
+</form>
+<h1>Job Description (After Cleaning)</h1>
+<p>
+  <%=jdCurJob%>
+</p>
+<h1>Skills for This Job</h1>
+<%skills.forEach(function(item){%>
+  <ul>
+    <li>
+      <h3><%=item%></h3>
+    </li>
+  </ul>
+
+<%})%>
+<h1>Top Skills(Total Links:<%=LinkCounts%>)</h1>
+<ul>
+  <%top.forEach(function(item){%>
+    <li>
+      <h3><%=item%></h3>
+    </li>
+  <%})%>
+</ul>
+
+<%-include("footer") -%>

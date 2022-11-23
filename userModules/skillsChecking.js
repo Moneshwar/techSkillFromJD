@@ -1,9 +1,8 @@
-module.exports.skillsChecking=function(receivedTextCopy)
+module.exports.skillsChecking=function(receivedTextCopy,map)
 {
   const skill=require(__dirname+"/../data/skillList.js");
-  var map={};
   const skillsList=skill.skillList();
-  //console.log(receivedTextCopy);
+  var skillsForThisJob=[];
   skillsList.forEach(function(item){
     var count=0;
     receivedTextCopy.forEach(function(data){
@@ -12,6 +11,7 @@ module.exports.skillsChecking=function(receivedTextCopy)
       }
     });
     if(count>0){
+      skillsForThisJob.push(item);
           var temp=item.toLowerCase();
           var x=0;
           if(temp in map)
@@ -28,5 +28,9 @@ module.exports.skillsChecking=function(receivedTextCopy)
   {
     ans.push(keysSorted[i]);
   }
-  return ans;
+  var obj={
+    top:ans,
+    curJob:skillsForThisJob,
+  }
+  return obj;
 }
