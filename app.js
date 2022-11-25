@@ -5,6 +5,7 @@ const HTMLParser = require('node-html-parser');
 const token=require(__dirname+"/userModules/tokenizer.js");
 const skillCheck=require(__dirname+"/userModules/skillsChecking.js");
 const app=express();
+const PORT = process.env.PORT ||5000;
 var LinkCount=0;
 var urlCollection=[];
 app.use(bodyParser.urlencoded({extended:true}));
@@ -59,6 +60,6 @@ app.post('/',function(req,res){
   url=req.body.enteredItem;
   res.redirect('/');
 })
-app.listen(3000,function(){
-  console.log("Port started at 3000");
+app.listen(PORT,function(){
+  console.log("Port started at ${PORT}");
 });
