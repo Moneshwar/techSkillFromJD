@@ -1,5 +1,4 @@
-module.exports.skillList=function()
-{
+module.exports.skillList=function(){
     var skills = [
       'Linux',
       'Javascript',
@@ -34,7 +33,6 @@ module.exports.skillList=function()
       'Modification',
       'Analysis',
       'Quantitative',
-      'Research',
       'Reports',
       'Applications',
       'Certifications',

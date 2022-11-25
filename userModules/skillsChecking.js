@@ -1,5 +1,4 @@
-module.exports.skillsChecking=function(receivedTextCopy,map)
-{
+module.exports.skillsChecking=function(receivedTextCopy,map,flag){
   const skill=require(__dirname+"/../data/skillList.js");
   const skillsList=skill.skillList();
   var skillsForThisJob=[];
@@ -14,18 +13,19 @@ module.exports.skillsChecking=function(receivedTextCopy,map)
       skillsForThisJob.push(item);
           var temp=item.toLowerCase();
           var x=0;
-          if(temp in map)
-            {
+          if(temp in map){
               x=map[temp];
             }
-          map[temp]=count+x;
+            if(flag){
+              map[temp]=count+x;
+            }
+
     }
   });
   keysSorted = Object.keys(map).sort(function(a,b){return map[b]-map[a]})
   //Top 10 Most needed skills
   var ans=[];
-  for(i=0;i<10;i++)
-  {
+  for(i=0;i<10 && i<keysSorted.length;i++){
     ans.push(keysSorted[i]);
   }
   var obj={

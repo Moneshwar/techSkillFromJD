@@ -1,29 +1,42 @@
 <%-include("header") -%>
+<div class="header">
+  <a href="" class="logo">Job Analyser</a>
+</div>
 <form action="/" method="post">
-  <label><h2>Entet the Url To Analyse</h2></label>
+  <label><h2 style="margin-bottom: 25px;margin-top: 25px;">Entet the Url To Analyse</h2></label>
   <textarea name="enteredItem" rows="2" cols="90"></textarea>
   <button class="btn" type="submit" name="button" value="val">Analyse</button>
 </form>
+<%if(skills.length>0){%>
+  <h1>Job Title:&nbsp;&nbsp;&nbsp;<span style="color: black"><%=jobTitle%></span></h1>
 <h1>Job Description (After Cleaning)</h1>
 <p>
   <%=jdCurJob%>
 </p>
-<h1>Skills for This Job</h1>
-<%skills.forEach(function(item){%>
-  <ul>
-    <li>
-      <h3><%=item%></h3>
-    </li>
-  </ul>
+<div style="width: auto; float:left; height:100px; margin:10px">
+    <h1>Skills for This Job</h1>
+    <%skills.forEach(function(item){%>
+      <ul>
+        <li>
+          <h3><%=item%></h3>
+        </li>
+      </ul>
 
-<%})%>
-<h1>Top Skills(Total Links:<%=LinkCounts%>)</h1>
-<ul>
-  <%top.forEach(function(item){%>
-    <li>
-      <h3><%=item%></h3>
-    </li>
-  <%})%>
-</ul>
+    <%})%>
+
+
+</div>
+<div style="width: auto; float:left;  height:100px;margin:10px">
+  <h1>Top Skills(Total Links:<%=LinkCounts%>)</h1>
+  <ul>
+    <%top.forEach(function(item){%>
+      <li>
+        <h3 style="text-transform:capitalize;"><%=item%></h3>
+      </li>
+    <%})%>
+  </ul>
+</div>
+  <%}%>
+
 
 <%-include("footer") -%>
