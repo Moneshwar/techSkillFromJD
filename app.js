@@ -5,7 +5,7 @@ const HTMLParser = require('node-html-parser');
 const token=require(__dirname+"/userModules/tokenizer.js");
 const skillCheck=require(__dirname+"/userModules/skillsChecking.js");
 const app=express();
-const PORT = process.env.PORT ||5000;
+const PORT = process.env.PORT ||3000;
 var LinkCount=0;
 var urlCollection=[];
 app.use(bodyParser.urlencoded({extended:true}));
