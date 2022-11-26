@@ -14,6 +14,10 @@ app.use(express.static("public"));
 var url="";
 var map={};
 var jobTitle="";
+app.get('/error',function(req,res)
+{
+  res.render("error",{});
+})
 app.get("/",function(req,res){
   var ans=[];
   var skillsCur=[];
@@ -57,9 +61,13 @@ app.get("/",function(req,res){
       res.render("index",{top:ans,skills:skillsCur,jdCurJob:receivedText,LinkCounts:LinkCount,jobTitle:jobTitle});
     }
     function printe(){
-      res.render("error",{});
+      res.redirect("/error");
     }
 });
+app.post("/error",function(req,res){
+  url="";
+  res.redirect('/');
+})
 app.post('/',function(req,res){
   url=req.body.enteredItem;
   res.redirect('/');
