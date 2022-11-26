@@ -27,6 +27,7 @@ app.get("/",function(req,res){
       var flag=0;
       if(err){
         console.log(err);
+        printe();
       }
       else{
         if(!urlCollection.includes(url)){
@@ -54,6 +55,9 @@ app.get("/",function(req,res){
 
     function print(){
       res.render("index",{top:ans,skills:skillsCur,jdCurJob:receivedText,LinkCounts:LinkCount,jobTitle:jobTitle});
+    }
+    function printe(){
+      res.render("error",{});
     }
 });
 app.post('/',function(req,res){
